@@ -1,0 +1,6 @@
+# Only public documentation belongs in this binary-distribution repository.
+*
+!.gitignore
+!README.md
+!PRIVACY.md
+!SECURITY.md
