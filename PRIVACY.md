@@ -39,4 +39,4 @@ Nowe logi systemowe Flasha zapisują techniczne wyniki, czasy i kody, bez nazw w
 
 ## Aktualizacje
 
-Przy aktywnym kanale aktualizacji Flash pobiera publiczny manifest HTTPS i weryfikuje podpis Ed25519, hash/rozmiar paczki, tożsamość aplikacji, podpis Developer ID i notaryzację Apple. Obecny pakiet rozwojowy nie ma jeszcze opublikowanego kanału; ustawienia pokazują ten stan. Nie stosujemy ukrytego serwera licencji ani konta do aktualizacji.
+Flash korzysta z publicznego kanału aktualizacji. Pobiera manifest przez HTTPS i weryfikuje podpis Ed25519, hash/rozmiar paczki, tożsamość aplikacji, podpis Developer ID i notaryzację Apple. Sprawdzenie aktualizacji nie wymaga konta Flash ani tokenu GitHub. Nie stosujemy ukrytego serwera licencji ani konta do aktualizacji.
