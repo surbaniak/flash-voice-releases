@@ -1,6 +1,6 @@
 # Prywatność we Flashu 2.0
 
-Stan implementacji: 20 września 2026. Aplikacja nie wymaga konta Flash ani abonamentu i nie korzysta z serwera AppFly do przetwarzania nagrań.
+Stan implementacji: 8 października 2026. Aplikacja nie wymaga konta Flash ani abonamentu i nie korzysta z serwera AppFly do przetwarzania nagrań.
 
 Ścieżka przetwarzania to **Twój Mac → Groq → Twój Mac**, przez szyfrowane połączenie HTTPS. Groq przetwarza przesłane audio lub tekst i odsyła wynik bez serwera pośredniczącego Flasha. Klucz pozostaje w Pęku kluczy macOS i służy do uwierzytelnienia bezpośredniego żądania do Groq. Szyfrowanie połączenia chroni transmisję; nie oznacza, że dostawca nie otrzymuje treści do przetworzenia.
 
@@ -17,6 +17,12 @@ Teleprompter korzysta z Apple Speech. Zależnie od języka i dostępności Apple
 Klucz Groq i klucz szyfrowania historii znajdują się w osobnej przestrzeni macOS Keychain (`pl.appfly.flash.voice`). Nagranie dyktowania jest przetwarzane w pamięci; po błędzie może pozostać tam do ręcznego ponowienia, odrzucenia, rozpoczęcia nowego nagrania lub zamknięcia aplikacji. Aplikacja nie zapisuje plików nagrań dyktowania.
 
 ## Dane lokalne
+
+W wersji 2.0.10 wskaźnik Pełny notch pokazuje także podgląd słów podczas nagrywania. Używa on wyłącznie lokalnego Apple Speech, po zgodzie macOS na rozpoznawanie mowy i tylko dla języka obsługiwanego na urządzeniu. Nie przełącza się na serwery Apple. Podgląd jest tymczasowy, może się zmieniać i nie jest źródłem tekstu wstawianego ani historii - końcowy wynik nadal pochodzi z Groq. Gdy lokalny podgląd jest niedostępny, samo dyktowanie działa dalej.
+
+Podejrzany wynik zawierający znaną frazę o prawach autorskich może otrzymać dodatkową kontrolę przez lokalne Apple Speech, jeśli zgoda i język są już dostępne. Ta kontrola nie prosi samodzielnie o nowe uprawnienia, nie wysyła audio do Apple i nie zastępuje wyniku tekstem innego modelu. Przy wyraźnej sprzeczności Flash zachowuje nagranie w pamięci do ponowienia zamiast wklejać podejrzany wynik.
+
+Animacja Voice Glow pochodzi z dołączonych plików na licencji MIT. Jej lokalny renderer otrzymuje jedynie poziom głośności i stan pauzy, bez audio, transkrypcji, kluczy ani połączeń z Libraries.dev.
 
 `~/Library/Application Support/FlashVoice` przechowuje historię, słownik, akcje i skrypty. Historia (`history.enc`) jest szyfrowana AES-256-GCM. Słownik, akcje, skrypty i ich wersje są lokalnymi plikami JSON, nie są szyfrowane przez aplikację. Historia przechowuje również nazwę aplikacji docelowej lokalnie; nie jest ona wysyłana do analityki.
 
