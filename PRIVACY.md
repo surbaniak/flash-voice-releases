@@ -1,6 +1,6 @@
 # Prywatność we Flashu 2.0
 
-Stan implementacji: 8 października 2026. Aplikacja nie wymaga konta Flash ani abonamentu i nie korzysta z serwera AppFly do przetwarzania nagrań.
+Stan implementacji: 9 października 2026. Aplikacja nie wymaga konta Flash ani abonamentu i nie korzysta z serwera AppFly do przetwarzania nagrań.
 
 Ścieżka przetwarzania to **Twój Mac → Groq → Twój Mac**, przez szyfrowane połączenie HTTPS. Groq przetwarza przesłane audio lub tekst i odsyła wynik bez serwera pośredniczącego Flasha. Klucz pozostaje w Pęku kluczy macOS i służy do uwierzytelnienia bezpośredniego żądania do Groq. Szyfrowanie połączenia chroni transmisję; nie oznacza, że dostawca nie otrzymuje treści do przetworzenia.
 
@@ -18,9 +18,9 @@ Klucz Groq i klucz szyfrowania historii znajdują się w osobnej przestrzeni mac
 
 ## Dane lokalne
 
-W wersji 2.0.10 wskaźnik Pełny notch pokazuje także podgląd słów podczas nagrywania. Używa on wyłącznie lokalnego Apple Speech, po zgodzie macOS na rozpoznawanie mowy i tylko dla języka obsługiwanego na urządzeniu. Nie przełącza się na serwery Apple. Podgląd jest tymczasowy, może się zmieniać i nie jest źródłem tekstu wstawianego ani historii - końcowy wynik nadal pochodzi z Groq. Gdy lokalny podgląd jest niedostępny, samo dyktowanie działa dalej.
+Wskaźnik Pełny notch pokazuje podgląd słów podczas nagrywania przy użyciu Apple Speech, po zgodzie macOS na rozpoznawanie mowy. Od wersji 2.1.1 Flash preferuje lokalne przetwarzanie, ale gdy nie jest dostępne lub zawodzi, automatycznie korzysta z usługi Apple, która może przetwarzać głos online. W takim przypadku audio trafia także bezpośrednio do Apple podczas nagrywania; nie wymaga to klucza Groq ani dodatkowego ustawienia trybu. Podgląd jest tymczasowy, może się zmieniać i nie jest źródłem tekstu wstawianego ani historii - końcowy wynik nadal pochodzi z Groq. Jeśli podgląd pozostaje niedostępny, samo dyktowanie działa dalej. Waveform i Minimalny nie uruchamiają podglądu Apple Speech.
 
-Od wersji 2.1.0 krótkie wypowiedzi (do 20 sekund, ze wskazanym językiem) mogą być porównywane z lokalnym podglądem lub dodatkowym rozpoznaniem Apple Speech. Podejrzane frazy o prawach autorskich nadal mają osobną kontrolę. Weryfikacja działa tylko, jeśli zgoda i język są już dostępne; nie prosi o nowe uprawnienia, nie wysyła audio do Apple i nie zastępuje wyniku tekstem Apple. Przy wyraźnej sprzeczności krótkiej wypowiedzi Flash może jednokrotnie ponowić transkrypcję tego samego nagrania w Groq, bez podpowiedzi słownika, z wyrównanym poziomem cichego audio. Jeśli wynik nadal nie jest potwierdzony, nagranie pozostaje w pamięci do ponowienia, a podejrzany tekst nie zostaje wklejony. Tymczasowy tekst użyty do porównania nie trafia do historii ani analityki.
+Od wersji 2.1.0 krótkie wypowiedzi (do 20 sekund, ze wskazanym językiem) mogą być porównywane z dostępnym podglądem lub dodatkowym lokalnym rozpoznaniem Apple Speech. Podejrzane frazy o prawach autorskich nadal mają osobną kontrolę. Osobna weryfikacja po nagraniu działa tylko, jeśli zgoda i lokalny język są już dostępne; nie prosi o nowe uprawnienia, sama nie wysyła audio do Apple i nie zastępuje wyniku tekstem Apple. Przy wyraźnej sprzeczności krótkiej wypowiedzi Flash może jednokrotnie ponowić transkrypcję tego samego nagrania w Groq, bez podpowiedzi słownika, z wyrównanym poziomem cichego audio. Jeśli wynik nadal nie jest potwierdzony, nagranie pozostaje w pamięci do ponowienia, a podejrzany tekst nie zostaje wklejony. Tymczasowy tekst użyty do porównania nie trafia do historii ani analityki.
 
 Animacja Voice Glow pochodzi z dołączonych plików na licencji MIT. Jej lokalny renderer otrzymuje jedynie poziom głośności i stan pauzy, bez audio, transkrypcji, kluczy ani połączeń z Libraries.dev.
 
