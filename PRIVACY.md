@@ -39,7 +39,7 @@ Każda usługa używa osobnego losowego identyfikatora instalacji; nie identyfik
 
 Zgody można niezależnie wyłączyć w Prywatności. Flash zatrzymuje nowe zdarzenia, usuwa oczekującą kolejkę i odrzuca stare raporty awarii po ponownym udzieleniu zgody. Żądania już wysłanego do dostawcy nie można cofnąć. Wyłączenie nie usuwa historycznych danych na koncie dostawcy.
 
-Raport diagnostyczny do ręcznego skopiowania zawiera wersje, stan uprawnień i do 30 kodów operacyjnych. Nie zawiera treści dyktowania ani kluczy.
+Raport diagnostyczny do ręcznego skopiowania zawiera wersje, stan uprawnień i do 30 kodów operacyjnych. Od 2.1.3 zakładka Ustawienia -> Diagnostyka przechowuje lokalnie także ostatnie 40 prób (do 200 wpisów każda): etapy, czasy, kody decyzji, statusy HTTP i dostępne pomiary połączenia. Obejmuje błędy, anulowania i przerwane sesje; nie odtwarza przebiegu starych nagrań. Raport jednej próby lub całego logu użytkownik może sam skopiować i przekazać. Nie zawiera treści dyktowania, audio, schowka ani kluczy. Przy istniejącej zgodzie diagnostycznej do analityki trafiają też nazwy etapów i losowe ID prób, umożliwiające powiązanie ręcznie przekazanego raportu z technicznymi zdarzeniami. Zgoda na statystyki użycia nie wystarcza do wysłania tych zdarzeń.
 
 Nowe logi systemowe Flasha zapisują techniczne wyniki, czasy i kody, bez nazw własnych akcji, poleceń, opisów błędów zawierających dowolny tekst, identyfikatorów aplikacji docelowych ani nazw wpisów Keychain. Poprawka nie usuwa historycznych logów zapisanych przez wcześniejsze kompilacje.
 
